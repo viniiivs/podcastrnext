@@ -50,10 +50,10 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   height={192}
                   src={episode.thumbnail}
                   alt={episode.title}
-                  objectFit="cover"
+                  style={{objectFit:"cover"}}
                 />
                 <div className={styles.episodeDetails}>
-                  <Link href={`/episodes/${episode.id}`}>
+                  <Link legacyBehavior href={`/episodes/${episode.id}`}>
                     <a>{episode.title}</a>
                   </Link>
                   <p>{episode.members}</p>
@@ -95,11 +95,11 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                       height={120}
                       src={episode.thumbnail}
                       alt={episode.title}
-                      objectFit="cover"
+                      style={{objectFit:"cover"}}
                     />
                   </td>
                   <td>
-                    <Link href={`/episodes/${episode.id}`}>
+                    <Link legacyBehavior href={`/episodes/${episode.id}`}>
                       <a>{episode.title}</a>
                     </Link>
                   </td>

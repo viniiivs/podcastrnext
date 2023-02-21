@@ -67,23 +67,33 @@ export function Player() {
     switch (currentPlayingSpeed) {
       case PlayingSpeed[0]:
         toggleSpeed(PlayingSpeed[1]);
-        audioRef.current.playbackRate = PlayingSpeed[1];
+        if (audioRef.current) {
+          audioRef.current.playbackRate = PlayingSpeed[1];
+        }
         break;
       case PlayingSpeed[1]:
         toggleSpeed(PlayingSpeed[2]);
-        audioRef.current.playbackRate = PlayingSpeed[2];
+        if (audioRef.current) {
+          audioRef.current.playbackRate = PlayingSpeed[2];
+        }
         break;
       case PlayingSpeed[2]:
         toggleSpeed(PlayingSpeed[3]);
-        audioRef.current.playbackRate = PlayingSpeed[3];
+        if (audioRef.current) {
+          audioRef.current.playbackRate = PlayingSpeed[3];
+        }
         break;
       case PlayingSpeed[3]:
         toggleSpeed(PlayingSpeed[0]);
-        audioRef.current.playbackRate = PlayingSpeed[0];
+        if (audioRef.current) {
+          audioRef.current.playbackRate = PlayingSpeed[0];
+        }
         break;
       default:
         toggleSpeed(PlayingSpeed[1]);
-        audioRef.current.playbackRate = PlayingSpeed[1];
+        if (audioRef.current) {
+          audioRef.current.playbackRate = PlayingSpeed[1];
+        }
         break;
     }
   }
@@ -100,10 +110,11 @@ export function Player() {
       {episode ? (
         <div className={styles.currentEpisode}>
           <Image
-            width={592}
-            height={592}
+            width={400}
+            height={Math.floor(400 * 0.75)}
             src={episode.thumbnail}
-            objectFit="cover"
+            alt=''
+            style={{objectFit:"cover"}}
           />
           <strong>{episode.title}</strong>
           <span>{episode.members}</span>
